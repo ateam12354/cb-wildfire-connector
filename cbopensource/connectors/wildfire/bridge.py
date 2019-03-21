@@ -132,9 +132,9 @@ class WildfireProvider(BinaryAnalysisProvider):
     def analyze_binary(self, md5sum, binary_file_stream):
         self.submit_wildfire(md5sum, binary_file_stream)
 
-        retries = 20
+        retries = 15
         while retries:
-            time.sleep(30)
+            time.sleep(60)
             result = self.check_result_for(md5sum)
             if result:
                 return result
